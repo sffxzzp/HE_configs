@@ -1,0 +1,54 @@
+{
+	"request": [
+		{
+			"enable": true,
+			"name": "reCAPTCHA gstatic",
+			"ruleType": "redirect",
+			"matchType": "regexp",
+			"pattern": "http(s?)://www.gstatic.cn/recaptcha/(.*)",
+			"exclude": "",
+			"isFunction": false,
+			"action": "redirect",
+			"to": "https://www.gstatic.com/recaptcha/$2",
+			"group": "reCAPTCHA"
+		},
+		{
+			"enable": true,
+			"name": "reCAPTCHA",
+			"ruleType": "redirect",
+			"matchType": "regexp",
+			"pattern": "^http(s?)://www\\.google\\.com/recaptcha/(.*)",
+			"exclude": "",
+			"isFunction": false,
+			"action": "redirect",
+			"to": "https://recaptcha.net/recaptcha/$2",
+			"group": "reCAPTCHA"
+		},
+		{
+			"enable": true,
+			"name": "GoogleAPIs",
+			"ruleType": "redirect",
+			"matchType": "regexp",
+			"pattern": "^http(s?)://ajax\\.googleapis\\.com/(.*)",
+			"exclude": "",
+			"isFunction": false,
+			"action": "redirect",
+			"to": "https://gapis.geekzu.org/ajax/$2",
+			"group": "reCAPTCHA"
+		}
+	],
+	"sendHeader": [],
+	"receiveHeader": [
+		{
+			"enable": true,
+			"name": "reCAPTCHA CSP",
+			"ruleType": "modifyReceiveHeader",
+			"matchType": "all",
+			"pattern": "",
+			"exclude": "",
+			"isFunction": true,
+			"code": "let rt = detail.type;\nif (rt === 'script' || rt === 'stylesheet' || rt === 'main_frame' || rt === 'sub_frame') {\n  for (let i in val) {\n    if (val[i].name.toLowerCase() === 'content-security-policy') {\n      let s = val[i].value;\n      s = s.replace(/googleapis\\.com/g, '$& https://gapis.geekzu.org');\n      s = s.replace(/google\\.com/g, '$& https://recaptcha.net');\n      s = s.replace(/gstatic\\.com/g, '$& https://*.gstatic.cn');\n      val[i].value = s;\n      break;\n    }\n  }\n}",
+			"group": "reCAPTCHA"
+		}
+	]
+}
