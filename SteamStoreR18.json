@@ -1,0 +1,17 @@
+{
+	"request": [],
+	"sendHeader": [
+		{
+			"enable": true,
+			"name": "Steam Store R18",
+			"ruleType": "modifySendHeader",
+			"matchType": "domain",
+			"pattern": "store.steampowered.com",
+			"exclude": "",
+			"group": "Steam",
+			"isFunction": true,
+			"code": "for (const a in val) {\n    if (val[a].name.toLowerCase() === 'cookie') {\n        val[a].value += '; wants_mature_content=1; birthtime=22503171; ';\n        break;\n    }\n}"
+		}
+	],
+	"receiveHeader": []
+}
