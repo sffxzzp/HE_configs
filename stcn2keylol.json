@@ -1,0 +1,18 @@
+{
+	"request": [
+		{
+			"enable": true,
+			"name": "SteamCN to Keylol",
+			"ruleType": "redirect",
+			"matchType": "regexp",
+			"pattern": "^http(s?)://(.*?\\.?)steamcn\\.com(.*)",
+			"exclude": "",
+			"isFunction": false,
+			"action": "redirect",
+			"to": "https://$2keylol.com$3",
+			"group": "未分组"
+		}
+	],
+	"sendHeader": [],
+	"receiveHeader": []
+}
