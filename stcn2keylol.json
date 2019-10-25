@@ -5,7 +5,7 @@
 			"name": "SteamCN to Keylol",
 			"ruleType": "redirect",
 			"matchType": "regexp",
-			"pattern": "^http(s?)://(.*?\\.?)steamcn\\.com(.*)",
+			"pattern": "^http(s?)://([^\.]*?\.?)steamcn\.com(.*)",
 			"exclude": "",
 			"isFunction": false,
 			"action": "redirect",
