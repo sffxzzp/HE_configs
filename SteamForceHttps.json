@@ -1,0 +1,18 @@
+{
+	"request": [
+		{
+			"enable": true,
+			"name": "Steam Force HTTPS",
+			"ruleType": "redirect",
+			"matchType": "regexp",
+			"pattern": "http://store.steampowered.com(.*)",
+			"exclude": "",
+			"group": "Steam",
+			"isFunction": false,
+			"action": "redirect",
+			"to": "https://store.steampowered.com$1"
+		}
+	],
+	"sendHeader": [],
+	"receiveHeader": []
+}
