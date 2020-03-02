@@ -1,0 +1,43 @@
+{
+	"request": [
+		{
+			"enable": true,
+			"name": "Workshop iframe_api",
+			"ruleType": "redirect",
+			"matchType": "regexp",
+			"pattern": "https?://www.youtube.com/iframe_api",
+			"exclude": "",
+			"group": "Steam",
+			"isFunction": false,
+			"action": "redirect",
+			"to": "https://sffxzzp.coding.net/p/HE_configs/d/HE_configs/git/raw/master/iframe_api.js"
+		},
+		{
+			"enable": true,
+			"name": "Workshop widget_api",
+			"ruleType": "redirect",
+			"matchType": "regexp",
+			"pattern": "https?://s.ytimg.com/yts/jsbin/www-widgetapi-.*?/www-widgetapi.js",
+			"exclude": "",
+			"group": "Steam",
+			"isFunction": false,
+			"action": "redirect",
+			"to": "https://sffxzzp.coding.net/p/HE_configs/d/HE_configs/git/raw/master/widget_api.js"
+		}
+	],
+	"sendHeader": [],
+	"receiveHeader": [
+		{
+			"enable": true,
+			"name": "Workshop CSP",
+			"ruleType": "modifyReceiveHeader",
+			"matchType": "regexp",
+			"pattern": "https?://steamcommunity.com/sharedfiles/filedetails/.*",
+			"exclude": "",
+			"isFunction": true,
+			"code": "let rt = detail.type;\nif (rt === 'script' || rt === 'stylesheet' || rt === 'main_frame' || rt === 'sub_frame') {\n  for (let i in val) {\n    if (val[i].name.toLowerCase() === 'content-security-policy') {\n      val[i].value = \"default-src blob: data: https: 'unsafe-inline' 'unsafe-eval'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://steamcommunity-a.akamaihd.net/ https://api.steampowered.com/ https://steamcdn-a.akamaihd.net/steamcommunity/public/assets/ *.google-analytics.com https://www.google.com https://www.gstatic.com https://apis.google.com https://recaptcha.net https://www.gstatic.cn/recaptcha/ https://www.youtube.com/ https://sffxzzp.coding.net https://s.ytimg.com https://player.vimeo.com; object-src 'none'; connect-src 'self' https://api.steampowered.com/ https://store.steampowered.com/ wss://community.steam-api.com/websocket/ *.google-analytics.com https://*.valvesoftware.com https://*.steambeta.net https://*.steamcontent.com https://steambroadcast.akamaized.net https://steambroadcastchat.akamaized.net https://broadcast.st.dl.bscstorage.net https://broadcast.st.dl.eccdnx.com http://127.0.0.1:27060 ws://127.0.0.1:27060;\";\n      break;\n    }\n  }\n}",
+			"group": "Steam"
+		}
+	],
+	"receiveBody": []
+}
