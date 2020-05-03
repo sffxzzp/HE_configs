@@ -5,7 +5,7 @@
 			"name": "Steam Without China CDN",
 			"ruleType": "redirect",
 			"matchType": "regexp",
-			"pattern": "https?://(store.st.dl.bscstorage.net|store.st.dl.eccdnx.com)(.*?)",
+			"pattern": "https?://(store.st.dl.bscstorage.net|store.st.dl.eccdnx.com|store.st.dl.pinyuncloud.com)(.*?)",
 			"exclude": "",
 			"group": "Steam",
 			"isFunction": false,
