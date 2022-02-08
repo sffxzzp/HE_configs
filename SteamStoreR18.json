@@ -1,5 +1,4 @@
 {
-	"request": [],
 	"sendHeader": [
 		{
 			"enable": true,
@@ -9,9 +8,11 @@
 			"pattern": "store.steampowered.com",
 			"exclude": "",
 			"group": "Steam",
-			"isFunction": true,
-			"code": "for (const a in val) {\n    if (val[a].name.toLowerCase() === 'cookie') {\n        val[a].value += '; wants_mature_content=1; birthtime=22503171; ';\n        break;\n    }\n}"
+			"isFunction": false,
+			"action": {
+				"name": "user-agent",
+				"value": "Googlebot/2.1 (+http://www.google.com/bot.html)"
+			}
 		}
-	],
-	"receiveHeader": []
+	]
 }
