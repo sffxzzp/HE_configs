@@ -10,7 +10,7 @@
 			"group": "Steam",
 			"isFunction": false,
 			"action": "redirect",
-			"to": "https://sffxzzp.coding.net/p/HE_configs/d/HE_configs/git/raw/master/iframe_api.js"
+			"to": "https://fastly.jsdelivr.net/gh/sffxzzp/HE_configs/iframe_api.js"
 		},
 		{
 			"enable": true,
@@ -22,7 +22,7 @@
 			"group": "Steam",
 			"isFunction": false,
 			"action": "redirect",
-			"to": "https://sffxzzp.coding.net/p/HE_configs/d/HE_configs/git/raw/master/widget_api.js"
+			"to": "https://fastly.jsdelivr.net/gh/sffxzzp/HE_configs/iframe_api.jswidget_api.js"
 		}
 	],
 	"sendHeader": [],
